@@ -1,0 +1,37 @@
+database:
+  host: localhost
+  port: 5432
+  user: postgres
+  password: changeme
+  dbname: auth_system
+  sslmode: disable
+  schema: AuthService
+  connectRetries: 5
+  connectRetryDelay: 5
+  pool:
+    maxConns: 10
+    minConns: 5
+    maxConnLifetime: 10
+    maxConnIdleTime: 5
+    healthCheckPeriod: 5
+
+server:
+  host: 0.0.0.0
+  port: 8080
+
+jwt:
+  secretKey: changeme
+  expiration: 24
+  refreshExp: 48
+
+logger:
+  level: "debug"
+  development: true
+  encoding: "json"
+  outputPaths: ["stdout"]
+  errorOutputPaths: ["stderr"]
+  encoderConfig:
+    messageKey: "message"
+    levelKey: "level"
+    timeKey: "timestamp"
+    encodeLevel: "lowercase"
